@@ -2,3 +2,90 @@
   margin-top: 3.734rem;
   position: relative;
 }
+
+.filters {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 2.134rem;
+  padding: 1.334rem 0 1.334rem 1.334rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  -webkit-box-shadow: 0px 15px 20px 0px rgba(13,113,130,0.15);
+  -moz-box-shadow: 0px 15px 20px 0px rgba(13,113,130,0.15);
+  box-shadow: 0px 15px 20px 0px rgba(13,113,130,0.15);
+}
+
+.filters__btn {
+  background-color: var(--light-accent);
+  color: var(--main-color);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.867rem;
+  font-weight: 700;
+  padding-left: 0.534rem;
+  padding-right: 0;
+  margin-bottom: 1.067rem;
+  margin-right: 1.067rem;
+  cursor: pointer;
+}
+
+.filters__btn:hover > .filters__icon {
+  background-color: var(--dark-bg);
+}
+
+.filters__btn:last-child {
+  margin: 0;
+}
+
+.filters__btn * {
+  pointer-events: none;
+}
+
+.filters__icon {
+  background-color: var(--main-color);
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  margin-left: 0.534rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.filters__icon svg {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+}
+
+.filters__clear {
+  border: none;
+  background-color: transparent;
+  color: var(--gray);
+  font-size: 0.867rem;
+  font-weight: 700;
+  margin-right: 2.134rem;
+  cursor: pointer;
+}
+
+.filters__clear:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.jobs__no__filter {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.jobs__with__filter {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+}

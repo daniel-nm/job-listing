@@ -44,9 +44,43 @@ function Listing() {
     }
   }, [categories]);
 
+  // Removes a category from the array
+  const removeClick = (e) => {
+    // Create new array with categories
+    let newCategories = [...categories];
+    // Find index of item
+    const index = newCategories.indexOf(e.target.value);
+    // If item exists
+    if(index !== -1) {
+      // Remove item from array
+      newCategories.splice(index, 1);
+      // Set new list of categories
+      setCategories(newCategories);
+      // Update the jobs list
+      setJobListing(jobs);
+    }
+  }
+
+  // Clears all categories
+  const clearFilters = () => {
+    setCategories([]);
+    setJobListing(jobs);
+  }
+
   return (
     <section className="listing container">
-      <div>
+      {categories.length > 0 &&
+        <div className="filters">
+          <div className="filters__categories">
+            {categories.map((category, index) => (
+              <button value={category} className="filters__btn" key={index} onClick={removeClick}>{category} <span className="filters__icon"><RemoveIcon /></span></button>
+            )
+            )}
+          </div>
+          <button className="filters__clear" onClick={clearFilters}>Clear</button>
+        </div>
+      }
+      <div className={categories.length > 0 ? 'jobs__with__filter' : 'jobs__no__filter'}>
         {jobListing.length > 0 && jobListing.map((job) => {
             return (
               <Job info={job} key={job.id} onCategory={addFilteredCategory}/>
