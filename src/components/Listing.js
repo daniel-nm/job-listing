@@ -26,6 +26,24 @@ function Listing() {
     }
   }
 
+  // Filter job list by selected categories
+  useEffect(() => {
+    // If there are filtered categories, apply logic
+    if(categories.length) {
+      let listing;
+      categories.forEach((item) => {
+        listing = jobListing.filter((job) => {
+          return job.role === item || job.level === item || job.languages.includes(item) || job.tools.includes(item);
+        });
+      });
+      setJobListing(listing);
+    }
+    // Otherwise, reset list to initial status
+    else {
+      setJobListing(jobs);
+    }
+  }, [categories]);
+
   return (
     <section className="listing container">
       <div>
