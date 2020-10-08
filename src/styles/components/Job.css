@@ -129,3 +129,28 @@ Job categories styles
   background-color: var(--main-color);
   color: var(--white);
 }
+
+@media screen and (min-width: 68.27em) {
+  .job hr {
+    display: none;
+  }
+
+  .job {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .job__info {
+    display: flex;
+  }
+
+  .job__info__img {
+    position: unset;
+    height: 88px;
+    width: 88px;
+    margin-right: 2.134rem;
+  }
+
+}
