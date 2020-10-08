@@ -18,13 +18,16 @@ function Listing() {
 
 
   return (
-    <div>
-      {jobListing.length > 0 && jobListing.map((job) => {
-          return (
-            <Job info={job} key={job.id} />
-          )
-        })}
-    </div>
+    <section className="listing container">
+      <div>
+        {jobListing.length > 0 && jobListing.map((job) => {
+            return (
+              <Job info={job} key={job.id} />
+            )
+          })}
+      </div>
+    </section>
+
   )
 }
 
