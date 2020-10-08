@@ -17,6 +17,11 @@ function Job(props) {
     tools
   } = props.info;
 
+  // Handles category click to lift state up
+  const handleClick = (e) => {
+    props.onCategory(e.target.value);
+  }
+
   return (
     <div className="job">
       {/* Job information: company name / job title / job details */}
@@ -41,10 +46,10 @@ function Job(props) {
       <hr/>
       {/* Job categories */}
       <div className="job__categories">
-        <button value={role} className="job__categories__btn">{role}</button>
-        <button value={level} className="job__categories__btn">{level}</button>
-        {languages && languages.map((language, index) => <button value={language} key={index} className="job__categories__btn">{language}</button>)}
-        {tools && tools.map((tool, index) => <button value={tool} key={index} className="job__categories__btn">{tool}</button>)}
+        <button value={role} className="job__categories__btn" onClick={handleClick}>{role}</button>
+        <button value={level} className="job__categories__btn" onClick={handleClick}>{level}</button>
+        {languages && languages.map((language, index) => <button value={language} key={index} className="job__categories__btn" onClick={handleClick}>{language}</button>)}
+        {tools && tools.map((tool, index) => <button value={tool} key={index} className="job__categories__btn" onClick={handleClick}>{tool}</button>)}
       </div>
     </div>
   )

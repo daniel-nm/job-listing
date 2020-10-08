@@ -16,13 +16,22 @@ function Listing() {
     setJobListing(jobs);
   }, []);
 
+  // Set categories initial status
+  const [categories, setCategories] = useState([]);
+
+  // Adds a new category to the filtered categories array 
+  const addFilteredCategory = (item) => {
+    if(!categories.includes(item)) {
+      setCategories(categories => [...categories, item]);
+    }
+  }
 
   return (
     <section className="listing container">
       <div>
         {jobListing.length > 0 && jobListing.map((job) => {
             return (
-              <Job info={job} key={job.id} />
+              <Job info={job} key={job.id} onCategory={addFilteredCategory}/>
             )
           })}
       </div>
